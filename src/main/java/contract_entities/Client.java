@@ -3,9 +3,18 @@ package contract_entities;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
+/**
+ * Client - class, containing client properties -
+ * client id;
+ * name;
+ * birthdate;
+ * passport data;
+ * sex;
+ */
 public class Client {
-    enum Sex {FEMALE, MALE}
+    public enum Sex {FEMALE, MALE}
 
     private int id;
     private String name;
@@ -19,6 +28,18 @@ public class Client {
         this.birthDate = birthDate;
         this.passport = passport;
         this.sex = sex;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return id == client.id &&
+                Objects.equals(name, client.name) &&
+                Objects.equals(birthDate, client.birthDate) &&
+                Objects.equals(passport, client.passport) &&
+                sex == client.sex;
     }
 
     public void setId(int id) {
@@ -61,10 +82,18 @@ public class Client {
         return sex;
     }
 
-    public int getAge(){
+    /**
+     * function, counting the age of the client
+     * @return client age at the moment of calling the function
+     */
+    public int getAge() {
+        this.birthDate.setYear(this.birthDate.getYear() - 1900);
         DateFormat format = new SimpleDateFormat("yyyy");
         int d1 = Integer.parseInt(format.format(this.birthDate));
+        System.out.println(this.birthDate);
         int d2 = Integer.parseInt(format.format(new Date()));
+        System.out.println(d1);
+        System.out.println(d2);
         return (d2 - d1);
     }
 }

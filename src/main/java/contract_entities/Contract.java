@@ -1,7 +1,16 @@
 package contract_entities;
 
 import java.util.Date;
+import java.util.Objects;
 
+/**
+ * Contract - superclass for contract entity - contains properties:
+ * contract id;
+ * date when contract starts;
+ * date when contract ends;
+ * contract number;
+ * client with whom contract is signed;
+ */
 public class Contract {
     private int id;
     private Date startDate;
@@ -15,6 +24,18 @@ public class Contract {
         this.endDate = endDate;
         ContractNumber = contractNumber;
         this.client = client;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contract contract = (Contract) o;
+        return id == contract.id &&
+                ContractNumber == contract.ContractNumber &&
+                Objects.equals(startDate, contract.startDate) &&
+                Objects.equals(endDate, contract.endDate) &&
+                Objects.equals(client, contract.client);
     }
 
     public int getContractNumber() {
