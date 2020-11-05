@@ -1,6 +1,8 @@
+package my_arrays;
+
 import java.util.Arrays;
 /**
- * Array - generic array class with possibility to add and remove elements
+ * my_arrays.Array - generic array class with possibility to add and remove elements
  * with automatic regulation of the buffer size
  */
 public class Array<T>{

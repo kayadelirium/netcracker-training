@@ -1,7 +1,9 @@
+package my_arrays;
+
 import contract_entities.*;
 
 /**
- * ContractArray - wrapping class for Array;
+ * my_arrays.ContractArray - wrapping class for my_arrays.Array;
  * contains methods for working with contracts in array;
  */
 public class ContractArray {

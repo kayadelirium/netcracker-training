@@ -1,3 +1,5 @@
+package my_arrays;
+
 import contract_entities.Client;
 import contract_entities.Contract;
 import junit.framework.TestCase;
@@ -41,6 +43,6 @@ public class ContractArrayTest extends TestCase {
 
         assertEquals(expected.get(4), contractArray.get(4));
 
-        assertEquals(null, contractArray.get(-1));
+        assertNull(contractArray.get(-1));
     }
 }

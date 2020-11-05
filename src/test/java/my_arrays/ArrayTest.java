@@ -1,3 +1,5 @@
+package my_arrays;
+
 import junit.framework.TestCase;
 
 public class ArrayTest extends TestCase {
