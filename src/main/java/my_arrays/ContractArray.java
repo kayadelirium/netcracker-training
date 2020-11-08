@@ -5,6 +5,7 @@ import sorters.ISorting;
 import sorters.QuickSort;
 
 import java.util.Comparator;
+import java.util.function.Predicate;
 
 /**
  * my_arrays.ContractArray - wrapping class for my_arrays.Array;
@@ -80,5 +81,15 @@ public class ContractArray {
      */
     public void sortBy(Comparator<Contract> comparator){
         sortBy(comparator, new QuickSort<Contract>());
+    }
+
+    public ContractArray findFor(Predicate<Contract> predicate){
+        ContractArray result = new ContractArray();
+        for(int i=0; i<contractArray.size(); i++) {
+            Contract contract = contractArray.get(i);
+            if (predicate.test(contract))
+                result.add(contract);
+        }
+        return result;
     }
 }
