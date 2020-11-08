@@ -4,6 +4,14 @@ import junit.framework.TestCase;
 
 public class ArrayTest extends TestCase {
 
+    public void testSwap(){
+        Array array = new Array<Integer>();
+        array.add(1);
+        array.add(2);
+        array.swap(0,1);
+        assertEquals(2, array.get(0));
+        assertEquals(1, array.get(1));
+    }
     public void testSize() {
         Array<Integer> array = new Array<Integer>();
         assertEquals(0, array.size());

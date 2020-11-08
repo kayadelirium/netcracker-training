@@ -2,7 +2,7 @@ package contract_entities;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -13,16 +13,21 @@ import java.util.Objects;
  * passport data;
  * sex;
  */
-public class Client {
+public class Client implements Comparable<Client>{
+    @Override
+    public int compareTo(Client o) {
+        return this.name.compareTo(o.name);
+    }
+
     public enum Sex {FEMALE, MALE}
 
     private int id;
     private String name;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String passport;
     private Sex sex;
 
-    public Client(int id, String name, Date birthDate, String passport, Sex sex) {
+    public Client(int id, String name, LocalDate birthDate, String passport, Sex sex) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
@@ -50,7 +55,7 @@ public class Client {
         this.name = name;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -70,7 +75,7 @@ public class Client {
         return name;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
@@ -87,13 +92,18 @@ public class Client {
      * @return client age at the moment of calling the function
      */
     public int getAge() {
+
+        LocalDate now = LocalDate.now();
+        return birthDate.getYear() - now.getYear();
+        /*
         this.birthDate.setYear(this.birthDate.getYear() - 1900);
         DateFormat format = new SimpleDateFormat("yyyy");
         int d1 = Integer.parseInt(format.format(this.birthDate));
         System.out.println(this.birthDate);
-        int d2 = Integer.parseInt(format.format(new Date()));
+        int d2 = Integer.parseInt(format.format(new LocalDate()));
         System.out.println(d1);
         System.out.println(d2);
         return (d2 - d1);
+        */
     }
 }

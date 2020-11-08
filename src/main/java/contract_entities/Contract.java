@@ -1,6 +1,7 @@
 package contract_entities;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
@@ -13,16 +14,16 @@ import java.util.Objects;
  */
 public class Contract {
     private int id;
-    private Date startDate;
-    private Date endDate;
-    private int ContractNumber;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private int contractNumber;
     private Client client;
 
-    public Contract(int id, Date startDate, Date endDate, int contractNumber, Client client) {
+    public Contract(int id, LocalDate startDate, LocalDate endDate, int contractNumber, Client client) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
-        ContractNumber = contractNumber;
+        this.contractNumber = contractNumber;
         this.client = client;
     }
 
@@ -32,18 +33,18 @@ public class Contract {
         if (o == null || getClass() != o.getClass()) return false;
         Contract contract = (Contract) o;
         return id == contract.id &&
-                ContractNumber == contract.ContractNumber &&
+                contractNumber == contract.contractNumber &&
                 Objects.equals(startDate, contract.startDate) &&
                 Objects.equals(endDate, contract.endDate) &&
                 Objects.equals(client, contract.client);
     }
 
     public int getContractNumber() {
-        return ContractNumber;
+        return contractNumber;
     }
 
     public void setContractNumber(int contractNumber) {
-        ContractNumber = contractNumber;
+        this.contractNumber = contractNumber;
     }
 
     public Client getClient() {
@@ -63,20 +64,56 @@ public class Contract {
         this.id = id;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
+    /*
+    comparators
+     */
+    public class CompareById implements Comparator<Contract>{
+        @Override
+        public int compare(Contract o1, Contract o2) {
+            return o1.getId() - o2.getId();
+        }
+    }
+    public class CompareByStartDate implements Comparator<Contract>{
+        @Override
+        public int compare(Contract o1, Contract o2) {
+            return o1.getStartDate().compareTo(o2.getStartDate());
+        }
+    }
+
+    public class CompareByEndDate implements Comparator<Contract>{
+        @Override
+        public int compare(Contract o1, Contract o2) {
+            return o1.getEndDate().compareTo(o2.getEndDate());
+        }
+    }
+
+    public class CompareByContractNumber implements Comparator<Contract>{
+        @Override
+        public int compare(Contract o1, Contract o2) {
+            return o1.contractNumber - o2.contractNumber;
+        }
+    }
+
+    public class CompareByClient implements Comparator<Contract>{
+        @Override
+        public int compare(Contract o1, Contract o2) {
+            return o1.getClient().compareTo(o2.getClient());
+        }
+    }
 }

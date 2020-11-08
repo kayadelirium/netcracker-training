@@ -4,6 +4,7 @@ import contract_entities.Client;
 import contract_entities.Contract;
 import junit.framework.TestCase;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class ContractArrayTest extends TestCase {
@@ -13,8 +14,8 @@ public class ContractArrayTest extends TestCase {
         Array<Contract> expected = new Array<Contract>();
 
         for(int i=0; i<10; i++){
-            expected.add(new Contract(i,new Date(), new Date(), 1000*i, new Client(i, "name", new Date(), " ", Client.Sex.FEMALE)));
-            contractArray.add(new Contract(i,new Date(), new Date(), 1000*i, new Client(i, "name", new Date(), " ", Client.Sex.FEMALE)));
+            expected.add(new Contract(i, LocalDate.now(), LocalDate.now(), 1000*i, new Client(i, "name", LocalDate.now(), " ", Client.Sex.FEMALE)));
+            contractArray.add(new Contract(i, LocalDate.now(), LocalDate.now(), 1000*i, new Client(i, "name", LocalDate.now(), " ", Client.Sex.FEMALE)));
         }
         for(int i=0; i<10; i++){
             assertEquals(i, expected.get(i).getId());
@@ -34,8 +35,8 @@ public class ContractArrayTest extends TestCase {
         Array<Contract> expected = new Array<Contract>();
 
         for(int i=0; i<10; i++){
-            expected.add(new Contract(i,new Date(), new Date(), 1000*i, new Client(i, "name", new Date(), " ", Client.Sex.FEMALE)));
-            contractArray.add(new Contract(i,new Date(), new Date(), 1000*i, new Client(i, "name", new Date(), " ", Client.Sex.FEMALE)));
+            expected.add(new Contract(i,LocalDate.now(), LocalDate.now(), 1000*i, new Client(i, "name", LocalDate.now(), " ", Client.Sex.FEMALE)));
+            contractArray.add(new Contract(i,LocalDate.now(),LocalDate.now(), 1000*i, new Client(i, "name", LocalDate.now(), " ", Client.Sex.FEMALE)));
         }
         for(int i=0; i<10; i++){
             assertEquals(i, expected.get(i).getId());

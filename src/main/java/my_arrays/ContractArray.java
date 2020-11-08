@@ -1,10 +1,14 @@
 package my_arrays;
 
 import contract_entities.*;
+import sorters.ISorting;
+import sorters.QuickSort;
+
+import java.util.Comparator;
 
 /**
  * my_arrays.ContractArray - wrapping class for my_arrays.Array;
- * contains methods for working with contracts in array;
+ * contains methods for working with contracts in array; repository for contract;
  */
 public class ContractArray {
     Array<Contract> contractArray;
@@ -60,5 +64,21 @@ public class ContractArray {
      */
     public int size(){
         return contractArray.size();
+    }
+
+    /**
+     * sorting method with possibility to choose sorting algorithm and comparator
+     * @param comparator - sorting rule for specified key
+     * @param sorting - contract array should be sorted
+     */
+    public void sortBy(Comparator<Contract> comparator, ISorting<Contract> sorting){
+        sorting.sort(contractArray, comparator);
+    }
+    /**
+     * method sorting by quickSort the repository due to chosen comparator
+     * @param comparator - sorting rule for specified key
+     */
+    public void sortBy(Comparator<Contract> comparator){
+        sortBy(comparator, new QuickSort<Contract>());
     }
 }

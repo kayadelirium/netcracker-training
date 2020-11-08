@@ -11,6 +11,7 @@ public class Array<T>{
      * minimal possible array capacity;
      */
     private final int INITIAL = 16;
+
     private Object[] array;
     /**
      * the current value of buffer size
@@ -21,10 +22,21 @@ public class Array<T>{
      */
     private int pointer;
 
-    Array(){
+    public Array(){
         array = new Object[INITIAL];
         currentBufferSize = INITIAL;
         pointer = 0;
+    }
+
+    /**
+     * transpose elements with indexes a and b
+     * @param a - first index
+     * @param b - second index
+     */
+    public void swap(int a, int b){
+        Object temp = array[a];
+        array[a] = array[b];
+        array[b] = temp;
     }
 
     public int getCurrentBufferSize() {
@@ -88,5 +100,6 @@ public class Array<T>{
     public int size(){
         return pointer;
     }
+
 }
 
