@@ -19,6 +19,11 @@ public class Client implements Comparable<Client>{
         return this.name.compareTo(o.name);
     }
 
+    @Override
+    public String toString() {
+        return "Client{" + id + ", " + name + ", " + birthDate + ", " + passport + ", " + sex + '}';
+    }
+
     public enum Sex {FEMALE, MALE}
 
     private int id;

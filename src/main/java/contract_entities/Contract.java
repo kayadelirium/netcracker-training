@@ -12,7 +12,7 @@ import java.util.Objects;
  * contract number;
  * client with whom contract is signed;
  */
-public class Contract {
+public class Contract{
     private int id;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -80,37 +80,48 @@ public class Contract {
         this.endDate = endDate;
     }
 
-    /*
-    comparators
+    @Override
+    public String toString() {
+        return "{" + id +
+                ", " + startDate +
+                ", " + endDate +
+                ", " + contractNumber +
+                ", " + client.toString()+
+                '}';
+    }
+
+    /**
+    all comparators for super class contract to sort
      */
-    public class CompareById implements Comparator<Contract>{
+
+    public static class CompareById implements Comparator<Contract>{
         @Override
         public int compare(Contract o1, Contract o2) {
             return o1.getId() - o2.getId();
         }
     }
-    public class CompareByStartDate implements Comparator<Contract>{
+    public static class CompareByStartDate implements Comparator<Contract>{
         @Override
         public int compare(Contract o1, Contract o2) {
             return o1.getStartDate().compareTo(o2.getStartDate());
         }
     }
 
-    public class CompareByEndDate implements Comparator<Contract>{
+    public static class CompareByEndDate implements Comparator<Contract>{
         @Override
         public int compare(Contract o1, Contract o2) {
             return o1.getEndDate().compareTo(o2.getEndDate());
         }
     }
 
-    public class CompareByContractNumber implements Comparator<Contract>{
+    public static class CompareByContractNumber implements Comparator<Contract>{
         @Override
         public int compare(Contract o1, Contract o2) {
             return o1.contractNumber - o2.contractNumber;
         }
     }
 
-    public class CompareByClient implements Comparator<Contract>{
+    public static class CompareByClient implements Comparator<Contract>{
         @Override
         public int compare(Contract o1, Contract o2) {
             return o1.getClient().compareTo(o2.getClient());

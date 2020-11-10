@@ -5,6 +5,9 @@ import contract_entities.*;
 import java.time.LocalDate;
 import java.util.function.Predicate;
 
+/**
+ * Predicates - class with equal predicate expressions for every contract field
+ */
 public class Predicates {
 
     public static Predicate<Contract> isId(int id){
@@ -51,6 +54,6 @@ public class Predicates {
     }
 
     public static Predicate<Contract> isTelevisionChannelPack(String channelPack){
-        return p -> p instanceof TelevisionContract && ((TelevisionContract) p).getChannelPack() == channelPack;
+        return p -> p instanceof TelevisionContract && ((TelevisionContract) p).getChannelPack().equals(channelPack);
     }
 }

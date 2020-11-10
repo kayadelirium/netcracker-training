@@ -23,7 +23,7 @@ public class BubbleSortTest extends TestCase {
         sorting.sort(array, Integer::compareTo);
         assertEquals(expected.size(), array.size());
         for(int i=0; i<expected.size(); i++){
-            assertEquals(expected.get(i), array.get(i));
+            assertEquals(expected, array);
         }
     }
 }
