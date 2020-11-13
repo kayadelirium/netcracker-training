@@ -1,4 +1,4 @@
-package my_arrays;
+package MyArrays;
 
 import junit.framework.TestCase;
 

@@ -1,4 +1,4 @@
-package contract_entities;
+package ContractEntities;
 
 import java.time.LocalDate;
 import java.util.Comparator;

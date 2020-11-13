@@ -1,6 +1,6 @@
-package filter_predicates;
+package FilterPredicates;
 
-import contract_entities.*;
+import ContractEntities.*;
 
 import java.time.LocalDate;
 import java.util.function.Predicate;

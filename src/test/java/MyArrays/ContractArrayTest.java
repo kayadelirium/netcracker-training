@@ -1,15 +1,13 @@
-package my_arrays;
+package MyArrays;
 
-import contract_entities.Client;
-import contract_entities.Contract;
-import filter_predicates.Predicates;
+import ContractEntities.Client;
+import ContractEntities.Contract;
+import FilterPredicates.Predicates;
 import junit.framework.TestCase;
-import sorters.BubbleSort;
-import sorters.QuickSort;
+import Sorters.BubbleSort;
+import Sorters.QuickSort;
 
 import java.time.LocalDate;
-import java.util.Comparator;
-import java.util.function.Predicate;
 
 public class ContractArrayTest extends TestCase {
 
@@ -58,13 +56,13 @@ public class ContractArrayTest extends TestCase {
             array.add(new Contract(i, LocalDate.of(2012 - i, 5, 12), LocalDate.of(2018 - i, 5, 12), 6 - i, new Client(i, "name" + i, LocalDate.of(1973, 1, 1), "", Client.Sex.MALE)));
             expected.add(new Contract(i, LocalDate.of(2012 - i, 5, 12), LocalDate.of(2018 - i, 5, 12), 6 - i, new Client(i, "name" + i, LocalDate.of(1973, 1, 1), "", Client.Sex.MALE)));
         }
-        array.sortBy(new Contract.CompareByStartDate(), new BubbleSort<Contract>());
+        array.sortBy(new Contract.CompareByStartDate());
 
         for(int i=0; i<6; i++){
             assertEquals (expected.getContractWithIndex(i), array.getContractWithIndex(6-i-1));
         }
 
-        expected.sortBy(new Contract.CompareByEndDate(), new QuickSort<>());
+        expected.sortBy(new Contract.CompareByEndDate());
 
         for(int i=0; i<6; i++){
             assertEquals(expected.getContractWithIndex(i), array.getContractWithIndex(i));

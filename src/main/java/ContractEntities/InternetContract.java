@@ -1,7 +1,6 @@
-package contract_entities;
+package ContractEntities;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * InternetContract - Contract subclass {@link Contract}

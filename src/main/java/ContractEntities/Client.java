@@ -1,7 +1,5 @@
-package contract_entities;
+package ContractEntities;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package contract_entities;
+package ContractEntities;
 
 import junit.framework.TestCase;
 

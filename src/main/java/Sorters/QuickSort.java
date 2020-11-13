@@ -1,6 +1,6 @@
-package sorters;
+package Sorters;
 
-import my_arrays.Array;
+import MyArrays.Array;
 
 import java.util.Comparator;
 

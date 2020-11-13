@@ -1,11 +1,10 @@
-package my_arrays;
+package MyArrays;
 
-import contract_entities.*;
-import sorters.ISorting;
-import sorters.QuickSort;
+import ContractEntities.*;
+import Sorters.ISorting;
+import Sorters.QuickSort;
 
 import java.util.Comparator;
-import java.util.Objects;
 import java.util.function.Predicate;
 
 /**
@@ -14,6 +13,7 @@ import java.util.function.Predicate;
  */
 public class ContractArray {
     Array<Contract> contractArray;
+    ISorting<Contract> sorting = new QuickSort<>();
 
     ContractArray(){
         contractArray = new Array<Contract>();
@@ -21,7 +21,7 @@ public class ContractArray {
 
     /**
      * add contract to array;
-     * @param contract
+     * @param contract ContractArrays.Contract
      */
     public void add(Contract contract){
         contractArray.add(contract);
@@ -78,17 +78,9 @@ public class ContractArray {
     /**
      * sorting method with possibility to choose sorting algorithm and comparator
      * @param comparator sorting rule for specified key
-     * @param sorting contract array should be sorted
-     */
-    public void sortBy(Comparator<Contract> comparator, ISorting<Contract> sorting){
-        contractArray = sorting.sort(contractArray, comparator);
-    }
-    /**
-     * method sorting by quickSort the repository due to chosen comparator
-     * @param comparator sorting rule for specified key
      */
     public void sortBy(Comparator<Contract> comparator){
-        sortBy(comparator, new QuickSort<Contract>());
+        contractArray = sorting.sort(contractArray, comparator);
     }
 
     /**

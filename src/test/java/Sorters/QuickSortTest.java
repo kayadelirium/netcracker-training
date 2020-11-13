@@ -1,12 +1,12 @@
-package sorters;
+package Sorters;
 
 import junit.framework.TestCase;
-import my_arrays.Array;
+import MyArrays.Array;
 
-public class BubbleSortTest extends TestCase {
+public class QuickSortTest extends TestCase {
 
     public void testSort() {
-        ISorting<Integer> sorting = new BubbleSort<>();
+        ISorting<Integer> sorting = new QuickSort<>();
         Array<Integer> array = new Array<>();
 
         array.add(2);
@@ -23,7 +23,7 @@ public class BubbleSortTest extends TestCase {
         sorting.sort(array, Integer::compareTo);
         assertEquals(expected.size(), array.size());
         for(int i=0; i<expected.size(); i++){
-            assertEquals(expected, array);
+            assertEquals(expected.get(i), array.get(i));
         }
     }
 }
