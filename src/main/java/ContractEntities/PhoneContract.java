@@ -20,6 +20,9 @@ public class PhoneContract extends Contract{
         this.sms = sms;
     }
 
+    public PhoneContract(){
+
+    }
     public int getMinutes() {
         return minutes;
     }

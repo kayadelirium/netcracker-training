@@ -38,6 +38,10 @@ public class Client implements Comparable<Client>{
         this.sex = sex;
     }
 
+    public Client(){
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

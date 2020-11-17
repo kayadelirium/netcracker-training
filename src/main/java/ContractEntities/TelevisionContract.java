@@ -16,6 +16,9 @@ public class TelevisionContract extends Contract{
         this.channelPack = channelPack;
     }
 
+    public TelevisionContract(){
+
+    }
     public String getChannelPack() {
         return channelPack;
     }

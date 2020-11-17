@@ -16,6 +16,9 @@ public class InternetContract extends Contract{
         this.maxSpeed = maxSpeed;
     }
 
+    public InternetContract() {
+    }
+
     public int getMaxSpeed() {
         return maxSpeed;
     }

@@ -1,6 +1,7 @@
 package ContractEntities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.Objects;
 
@@ -25,6 +26,9 @@ public class Contract{
         this.endDate = endDate;
         this.contractNumber = contractNumber;
         this.client = client;
+    }
+
+    public Contract() {
     }
 
     @Override
