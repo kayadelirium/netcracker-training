@@ -1,0 +1,6 @@
+begin_date;end_date;contract_number;cli_name;cli_birthdate;cli_passport;cli_sex;contract_type;addinfo
+01.01.2001;01.02.2001;21;Passmoreknow Timur Alexeevich;10.05.2001;3412 194323;MALE;1;100
+02.02.2002;03.03.2003;22;Passmoreknow Timur Alexeevich;10.05.2001;3412 194323;MALE;2;100;100;100;
+03.03.2003;02.02.2003;23;Passmoreknow Timur Alexeevich;10.05.2001;3412 194323;MALE;3;children
+04.04.2002;20.02.2020;33;Kusakin Denis Romanovich;08.09.1999;1234 567890;MALE;3;movies
+05.05.2005;10.10.2010;42;Romanova Katerina Romanovna;15.10.1999;9999 999999;FEMALE;3;music

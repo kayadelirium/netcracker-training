@@ -15,7 +15,7 @@ public class ContractArray {
     Array<Contract> contractArray;
     ISorting<Contract> sorting = new QuickSort<>();
 
-    ContractArray(){
+    public ContractArray(){
         contractArray = new Array<Contract>();
     }
 
